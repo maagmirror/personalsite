@@ -1,0 +1,287 @@
+@import "https://fonts.googleapis.com/css?family=Open+Sans";
+body {
+    font-family: open sans, sans-serif;
+    margin: 0;
+    background: #fff;
+    color: #222;
+    transition: all .25s;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none
+}
+
+.background:before {
+    opacity: .15;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #000!important;
+        color: #fff!important;
+    }
+}
+
+@keyframes glide {
+    from {
+        background-position: 0 0
+    }
+    to {
+        background-position: 784px 0
+    }
+}
+
+@keyframes slide-left {
+    0%,
+    50% {
+        left: calc((475px/2) + 25px)
+    }
+    100% {
+        left: 0
+    }
+}
+
+@keyframes slide-right {
+    0%,
+    50% {
+        right: calc((475px/2) + 25px)
+    }
+    100% {
+        right: 0
+    }
+}
+
+@keyframes wave {
+    0%,
+    100% {
+        transform: rotate(0)
+    }
+    20%,
+    60% {
+        transform: rotate(-25deg)
+    }
+    40%,
+    80% {
+        transform: rotate(10deg)
+    }
+}
+
+a#github {
+    z-index: 1000
+}
+
+svg#github {
+    fill: #fff;
+    color: #000;
+    position: absolute;
+    top: 0;
+    border: 0;
+    right: 0;
+    z-index: 1000
+}
+
+svg#github:hover .octo-arm {
+    animation: wave 560ms ease-in-out
+}
+
+.octo-arm {
+    transform-origin: 130px 106px
+}
+
+#social i {
+    color: #fff!important;
+    font-size: 1.5em;
+}
+
+.background {
+    overflow: hidden;
+    position: relative
+}
+
+.background:before {
+    animation: glide 30s linear infinite;
+    background: url(../img/grid.png) 0 0 repeat;
+    background-position: 0 0;
+    background-size: 784px 896px;
+    content: "";
+    height: 200%;
+    left: -50%;
+    opacity: .12;
+    position: fixed;
+    top: -50%;
+    transform: rotate(-10deg);
+    width: 200%;
+    z-index: -1
+}
+
+@media only screen and (min-width:769px) {
+    .background:before {
+        /* pause animation when user is not in the page */
+        /* animation-play-state: paused; */
+        transform: rotate(-10deg) scale(1)
+    }
+    body:hover .background:before {
+        animation-play-state: running
+    }
+}
+
+@media only screen and (max-width:769px) {
+    body#index div#container {
+        margin: 20px 30px;
+        zoom: .75;
+    }
+    a#github {
+        visibility: hidden
+    }
+}
+
+@media only screen and (min-width:769px) {
+    body#index div#container {
+        width: calc(100% - 50px);
+    }
+}
+
+div#photo {
+    background-image: url(../img/maag.jpg);
+    background-color: #fff;
+    background-position: center;
+    background-size: cover;
+    float: right;
+    max-height: 700px;
+    min-height: 500px;
+    height: 90%;
+    width: 475px;
+    box-shadow: 0 0 6px 2px rgba(0, 0, 0, .3);
+    z-index: 2;
+}
+
+div#photo {
+    box-shadow: none!important
+}
+
+div#photo,
+div#container {
+    margin: 0 25px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+div#container {
+    transform: translate(0, -50%);
+}
+
+h1,
+div#photo,
+div#container,
+#social {
+    display: inline-block;
+    position: relative
+}
+
+div#container {
+    animation: slide-right 2s cubic-bezier(0, -.03, .29, .9);
+    animation-iteration-count: 1;
+}
+
+div#container {
+    padding: 20px;
+    margin: 0;
+    transform: translate(0, 0);
+    width: calc(100% - 40px);
+    word-break: break-word
+}
+
+div#container {
+    float: left;
+    height: auto;
+    z-index: 1
+}
+
+div.col {
+    display: inline-block;
+    float: left;
+    height: 100vh;
+    width: 50%;
+}
+
+div.col::after {
+    clear: both;
+    content: "";
+    display: table
+}
+
+body#index div#container {
+    width: calc(100% - 50px);
+    transform: translate(0, -50%);
+}
+
+div#photo {
+    border-radius: 20px;
+    animation: slide-left 2s cubic-bezier(0, -.03, .29, .9);
+    animation-iteration-count: 1
+}
+
+#clients>a>img,
+#projects>a>img {
+    display: inline-block;
+    height: 54px;
+    padding: 0 4px;
+}
+
+body#index h4 {
+    font-size: .7em;
+}
+
+body#index h1 {
+    font-size: 3em;
+    font-weight: 300;
+    line-height: 1em;
+    margin-left: -4px;
+}
+
+body#index h3 {
+    font-size: 1.3em;
+}
+
+.select {
+    user-select: text!important;
+    -moz-user-select: text!important;
+    -webkit-user-select: text!important;
+    -ms-user-select: text!important
+}
+
+#tagline,
+#clients,
+#projects,
+#disclaimer {
+    max-width: 475px;
+    padding: 12px 0;
+}
+
+
+/* mobile css */
+
+@media only screen and (max-width:769px) {
+    div.col {
+        height: auto;
+        width: 100%
+    }
+    div#photo {
+        margin: 0;
+        transform: translate(0, 0%);
+        width: 100%;
+        box-shadow: none!important;
+        margin-top: 20px;
+    }
+    body#index div#container {
+        margin: 20px 30px;
+        zoom: .75
+    }
+    div#container {
+        padding: 20px;
+        margin: 0;
+        transform: translate(0, 0%)!important;
+        width: calc(100% - 40px);
+        word-break: break-word
+    }
+}
